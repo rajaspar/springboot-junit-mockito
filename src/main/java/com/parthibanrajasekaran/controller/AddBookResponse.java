@@ -5,14 +5,15 @@ import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Greeting {
+public class AddBookResponse {
 
   @Getter
   @Setter
-  private long id;
+  private String msg;
 
   @Getter
   @Setter
-  private String content;
+  private String id;
+
 
 }

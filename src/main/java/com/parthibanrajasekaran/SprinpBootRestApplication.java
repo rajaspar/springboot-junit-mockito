@@ -1,15 +1,13 @@
 package com.parthibanrajasekaran;
 
-import com.parthibanrajasekaran.controller.Library;
 import com.parthibanrajasekaran.repository.LibraryRepository;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SprinpBootRestApplication implements CommandLineRunner {
+public class SprinpBootRestApplication {
+//public class SprinpBootRestApplication implements CommandLineRunner {
 
 	@Autowired
 	LibraryRepository libraryRepository;
@@ -18,7 +16,7 @@ public class SprinpBootRestApplication implements CommandLineRunner {
 		SpringApplication.run(SprinpBootRestApplication.class, args);
 	}
 
-	@Override
+/*	@Override
 	public void run(String... args) {
 		Library library = libraryRepository.findById("fdsefr343").get();
 		System.out.println(library.getAuthor());
@@ -38,5 +36,5 @@ public class SprinpBootRestApplication implements CommandLineRunner {
 		}
 
 		libraryRepository.delete(library1);
-	}
+	}*/
 }
