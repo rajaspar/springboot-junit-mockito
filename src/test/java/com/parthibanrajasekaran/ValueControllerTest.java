@@ -8,8 +8,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.parthibanrajasekaran.controller.Value;
 import com.parthibanrajasekaran.controller.ValueController;
+import com.parthibanrajasekaran.model.Value;
 import java.util.ArrayList;
 import java.util.Collections;
 import org.junit.jupiter.api.Test;

@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "f5279b17-9593-4961-a98f-2c3474ba1e7d",
+		"name": "Santander",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sortValuesInAscending",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isbn\": \"selenium\",\n    \"aisle\": 20225,\n    \"author\": \"Parthiban Rajasekaran\",\n    \"book_name\": \"selenium\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/addBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sortValuesInDescending",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isbn\": \"selenium\",\n    \"aisle\": 20225,\n    \"author\": \"Parthiban Rajasekaran\",\n    \"book_name\": \"selenium\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/addBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"addBook"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
