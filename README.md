@@ -31,11 +31,20 @@ Community edition
 - Clone the project <br />
   ```git clone https://github.com/ParthibanRajasekaran/springboot-junit-mockito.git```
 - Launch and open the project 'springboot-junit-mockito' in IntelliJ editor
-- To start the tomcat server, right click **'SprinpBootRestApplication'** and run it as click _'SprinpBootRestApplication main()'_ .This will start the server in your localhost port: 8080 by default
-- If you wish to test the service using POSTMAN then please feel free to download the collection from _springboot-junit-mockito/postman-collection/_
+- To start the tomcat server, right click **'SprinpBootRestApplication'** and run it as click _'SprinpBootRestApplication main()'_ .This will start the server in your _localhost port: 8080_ by default
+- If you wish to test the service using **POSTMAN** then please feel free to download the collection from _springboot-junit-mockito/postman-collection/_
 - Trigger the test run right clicking the **'ValueControllerTest'** and run it as a junit test to trigger the unit tests
 
-
+### Excercise:
+- [x]  Provide 1 interface that can take in an array, these inputs must be numbers.
+  <span style="color:green;"> Model <Value> is created unde the model package, this will restrict users from passing an incorrect arraylist as request body. If users enter an incorrect input then the endpoint returns a **400 - Bad request** as response </span>
+- [x]  When this interface is called, it must return the numbers in ascending order. For example, input [9, 20, 1, 15, 30] would return [1, 9, 15, 20, 30]. <br>
+  <span style="color:green;">/sortValuesInAscending & /sortValuesInDescending in the controller package is implemented</span>
+- [x]  There must be at least one input check.
+- [x]  There must be at least one unit test.
+  <span style="color:green;">Value Controller has 100% unit test coverage</span>
+- [x]  The response must be returned as JSON.
+  
 ### Walkthrough on implementation:
 - The entry point of the project shall be _com/parthibanrajasekaran/SprinpBootRestApplication.java_ which will start the service
 - In order to ensure only array of integers are accepted, we declare the type of input via model here : _com/parthibanrajasekaran/model/Value.java_
