@@ -1,5 +1,7 @@
 package com.parthibanrajasekaran.controller;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,6 +11,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name="Storage2")
+@JsonInclude(Include.NON_NULL)
 public class Library {
 
   @Getter
