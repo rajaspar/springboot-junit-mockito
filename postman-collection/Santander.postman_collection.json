@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"isbn\": \"selenium\",\n    \"aisle\": 20225,\n    \"author\": \"Parthiban Rajasekaran\",\n    \"book_name\": \"selenium\"\n}",
+					"raw": "{\n    \"value\": [56, 20, 1, 15, 30]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,14 +20,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/addBook",
+					"raw": "http://localhost:8080/sortValuesInAscending",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"addBook"
+						"sortValuesInAscending"
 					]
 				}
 			},
@@ -40,7 +40,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"isbn\": \"selenium\",\n    \"aisle\": 20225,\n    \"author\": \"Parthiban Rajasekaran\",\n    \"book_name\": \"selenium\"\n}",
+					"raw": "{\n    \"value\": [9, 20, 1, 15, 30]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,14 +48,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/addBook",
+					"raw": "http://localhost:8080/sortValuesInDescending",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"addBook"
+						"sortValuesInDescending"
 					]
 				}
 			},
