@@ -1,6 +1,6 @@
 package com.parthibanrajasekaran.service;
 
-import com.parthibanrajasekaran.controller.Library;
+import com.parthibanrajasekaran.model.Library;
 import com.parthibanrajasekaran.repository.LibraryRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,7 @@ public class LibraryService {
     return library.isPresent();
   }
 
-  public boolean verifyIfBookWithAuthorExists(String author) {
-    Optional<Library> library = libraryRepository.findById(author);
-    return library.isPresent();
+  public Library getBookById(String id){
+    return libraryRepository.findById(id).get();
   }
 }

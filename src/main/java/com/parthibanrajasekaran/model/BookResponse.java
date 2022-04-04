@@ -1,11 +1,11 @@
-package com.parthibanrajasekaran.controller;
+package com.parthibanrajasekaran.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AddBookResponse {
+public class BookResponse {
 
   @Getter
   @Setter

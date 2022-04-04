@@ -1,6 +1,6 @@
 package com.parthibanrajasekaran.repository;
 
-import com.parthibanrajasekaran.controller.Library;
+import com.parthibanrajasekaran.model.Library;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

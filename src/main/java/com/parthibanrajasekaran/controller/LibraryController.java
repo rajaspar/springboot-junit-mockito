@@ -1,5 +1,7 @@
 package com.parthibanrajasekaran.controller;
 
+import com.parthibanrajasekaran.model.BookResponse;
+import com.parthibanrajasekaran.model.Library;
 import com.parthibanrajasekaran.repository.LibraryRepository;
 import com.parthibanrajasekaran.service.LibraryService;
 import java.text.MessageFormat;
@@ -28,16 +30,13 @@ public class LibraryController {
   LibraryRepository libraryRepository;
 
   @Autowired
-  AddBookResponse addBookResponse;
-
-  @Autowired
-  GetBookResponse getBookResponse;
+  BookResponse bookResponse;
 
   @Autowired
   LibraryService libraryService;
 
   @PostMapping("/addBook")
-  public ResponseEntity<AddBookResponse> addBook(@RequestBody Library library){
+  public ResponseEntity<BookResponse> addBook(@RequestBody Library library){
 
     final String id = libraryService.createId(library.getIsbn(),library.getAisle());
 
@@ -52,28 +51,28 @@ public class LibraryController {
       log.debug("Unique Id is added to the header successfully");
 
       // Adding response message for the request
-      addBookResponse.setMsg("Book has been successfully added");
-      addBookResponse.setId(id);
+      bookResponse.setMsg("Book has been successfully added");
+      bookResponse.setId(id);
       log.info(String.format("Book with id: %s added successfully to the library", id));
-      return new ResponseEntity<AddBookResponse>(addBookResponse, httpHeaders,HttpStatus.CREATED);
+      return new ResponseEntity<BookResponse>(bookResponse, httpHeaders,HttpStatus.CREATED);
     }
    else {
       log.debug("Book already exists - Duplicate entry");
-      addBookResponse.setMsg("Book already exists");
-      addBookResponse.setId(id);
-      return new ResponseEntity<AddBookResponse>(addBookResponse, HttpStatus.ACCEPTED);
+      bookResponse.setMsg("Book already exists");
+      bookResponse.setId(id);
+      return new ResponseEntity<>(bookResponse, HttpStatus.ACCEPTED);
     }
   }
 
   @GetMapping("/getBook/{id}")
   public ResponseEntity getBookById(@PathVariable(value = "id") String id){
     if(libraryService.verifyIfBookWithIdExists(id)) {
-      Library library = libraryRepository.findById(id).get();
+      Library library = libraryService.getBookById(id);
       return new ResponseEntity<Library>(library, HttpStatus.FOUND);
     } else{
       log.info(MessageFormat.format("Book with id: {0} does not exists", id));
-      getBookResponse.setMsg(String.format("Book with id: %s does not exists", id));
-      return new ResponseEntity<GetBookResponse>(getBookResponse, HttpStatus.NOT_FOUND);
+      bookResponse.setMsg(String.format("Book with id: %s does not exists", id));
+      return new ResponseEntity<>(bookResponse, HttpStatus.NOT_FOUND);
     }
   }
 
@@ -92,7 +91,7 @@ public class LibraryController {
   @PutMapping("/updateBook/{id}")
   public ResponseEntity updateBook(@PathVariable(value = "id") String id, @RequestBody Library library){
     if(libraryService.verifyIfBookWithIdExists(id)) {
-      Library libraryToBeUpdated = libraryRepository.findById(id).get();
+      Library libraryToBeUpdated = libraryService.getBookById(id);
 
       libraryToBeUpdated.setAisle(library.getAisle());
       libraryToBeUpdated.setAuthor(library.getAuthor());
@@ -102,8 +101,8 @@ public class LibraryController {
       return new ResponseEntity<Library>(libraryToBeUpdated, HttpStatus.OK);
     } else{
       log.info(MessageFormat.format("Book with id: {0} does not exists", id));
-      getBookResponse.setMsg(String.format("Book with id: %s does not exists", id));
-      return new ResponseEntity<GetBookResponse>(getBookResponse, HttpStatus.NOT_FOUND);
+      bookResponse.setMsg(String.format("Book with id: %s does not exists", id));
+      return new ResponseEntity<>(bookResponse, HttpStatus.NOT_FOUND);
     }
   }
 
@@ -112,16 +111,15 @@ public class LibraryController {
 
     final String id = library.getId();
     if(libraryService.verifyIfBookWithIdExists(id)) {
-      Library libraryToBeDeleted = libraryRepository.findById(id).get();
+      Library libraryToBeDeleted = libraryService.getBookById(id);
       libraryRepository.delete(libraryToBeDeleted);
       log.debug(String.format("Book with id: %s deleted successfully", id));
       return new ResponseEntity<>(String.format("Book with id: %s deleted successfully", id), HttpStatus.OK);
     } else{
       log.info(MessageFormat.format("Book with id: {0} does not exists", id));
-      getBookResponse.setMsg(String.format("Book with id: %s does not exists", id));
-      return new ResponseEntity<GetBookResponse>(getBookResponse, HttpStatus.NOT_FOUND);
+      bookResponse.setMsg(String.format("Book with id: %s does not exists", id));
+      return new ResponseEntity<>(bookResponse, HttpStatus.NOT_FOUND);
     }
   }
-
 
 }

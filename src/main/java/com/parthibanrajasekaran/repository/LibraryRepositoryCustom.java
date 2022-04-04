@@ -1,6 +1,6 @@
 package com.parthibanrajasekaran.repository;
 
-import com.parthibanrajasekaran.controller.Library;
+import com.parthibanrajasekaran.model.Library;
 import java.util.List;
 
 public interface LibraryRepositoryCustom {
