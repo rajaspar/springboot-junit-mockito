@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.parthibanrajasekaran</groupId>
-	<artifactId>sprinpboot-rest-junit-mockito</artifactId>
+	<artifactId>springboot-rest-junit-mockito</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SprinpBootRest</name>
+	<name>SpringBootRest</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
